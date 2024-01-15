@@ -25,6 +25,7 @@
 		DDF6A7832B55913D003E7075 /* CoinImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7822B55913D003E7075 /* CoinImageView.swift */; };
 		DDF6A7852B55929F003E7075 /* CoinImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7842B55929F003E7075 /* CoinImageService.swift */; };
 		DDF6A7872B5593D8003E7075 /* CoinImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7862B5593D8003E7075 /* CoinImageViewModel.swift */; };
+		DDF6A7892B55B8B3003E7075 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7882B55B8B3003E7075 /* LocalFileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		DDF6A7822B55913D003E7075 /* CoinImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageView.swift; sourceTree = "<group>"; };
 		DDF6A7842B55929F003E7075 /* CoinImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageService.swift; sourceTree = "<group>"; };
 		DDF6A7862B5593D8003E7075 /* CoinImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageViewModel.swift; sourceTree = "<group>"; };
+		DDF6A7882B55B8B3003E7075 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				DDF6A77C2B5585DA003E7075 /* NetworkingManager.swift */,
+				DDF6A7882B55B8B3003E7075 /* LocalFileManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				DDF6A7662B5557F5003E7075 /* HomeView.swift in Sources */,
 				DDF6A74F2B5552F4003E7075 /* CryptoProfilerIlApp.swift in Sources */,
 				DDF6A76A2B5558D6003E7075 /* CircleButtonView.swift in Sources */,
+				DDF6A7892B55B8B3003E7075 /* LocalFileManager.swift in Sources */,
 				DDF6A75F2B5555E2003E7075 /* Color.swift in Sources */,
 				DDF6A76C2B555BC4003E7075 /* CircleButtonAnimationView.swift in Sources */,
 				DDF6A7732B556A5B003E7075 /* PreviewProvider.swift in Sources */,
