@@ -9,12 +9,15 @@ import SwiftUI
 
 @main
 struct CryptoProfilerIlApp: App {
+    @StateObject private var vm: HomeViewModel = HomeViewModel(withMock: true)
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 HomeView()
                     .navigationBarHidden(true)
             }
+            .environmentObject(vm)
         }
     }
 }
