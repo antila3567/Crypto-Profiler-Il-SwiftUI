@@ -11,6 +11,11 @@ import SwiftUI
 struct CryptoProfilerIlApp: App {
     @StateObject private var vm: HomeViewModel = HomeViewModel(withMock: true)
     
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.theme.accent)]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.theme.accent)]
+    }
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {

@@ -49,34 +49,35 @@ class NetworkingManager {
     }
     
     
-    static func fetchMockData(completion: @escaping ([Coin]) -> Void) {
-        guard let url = Bundle.main.url(forResource: "cryptoMock", withExtension: "json") else {
+    static func fetchMockData<T: Decodable>(entityName: String, completion: @escaping (Result<T, Error>) -> Void) {
+        guard let url = Bundle.main.url(forResource: entityName, withExtension: "json") else {
             print("Failed to find JSON file")
-            completion([])
+            completion(.failure(NSError(domain: "YourDomain", code: 404, userInfo: nil))) // Provide a meaningful error
             return
         }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
                 print("Error fetching data: \(error.localizedDescription)")
-                completion([])
+                completion(.failure(error))
                 return
             }
             
             guard let jsonData = data else {
                 print("No data found")
-                completion([])
+                completion(.failure(NSError(domain: "YourDomain", code: 404, userInfo: nil))) // Provide a meaningful error
                 return
             }
             
             do {
                 let decoder = JSONDecoder()
-                let decodedData = try decoder.decode([Coin].self, from: jsonData)
-                completion(decodedData)
+                let decodedData = try decoder.decode(T.self, from: jsonData)
+                completion(.success(decodedData))
             } catch {
                 print("Error decoding JSON: \(error.localizedDescription)")
-                completion([])
+                completion(.failure(error))
             }
         }.resume()
     }
+
 }

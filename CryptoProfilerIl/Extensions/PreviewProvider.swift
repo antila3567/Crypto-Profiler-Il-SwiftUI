@@ -23,6 +23,9 @@ class DevPreview {
     
     let homeVM = HomeViewModel(withMock: true)
     
+    let statistic1 = Statistic(title: "Market Cap", value: "$12.5Bn", percentageChange: 25.35)
+    let statistic2 = Statistic(title: "Total Volume", value: "$1.23Tr")
+    
     let coin = Coin(
        id: "bitcoin",
        symbol: "btc",

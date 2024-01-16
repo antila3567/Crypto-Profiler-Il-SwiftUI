@@ -7,8 +7,6 @@
 
 import Foundation
 
-// https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=24h&locale=en
-
 struct Coin: Identifiable, Codable {
     let id, symbol, name: String
     let image: String
@@ -56,7 +54,36 @@ struct Coin: Identifiable, Codable {
         }
     
     func updateHoldings(amount: Double) -> Coin {
-        return Coin(id: id, symbol: symbol, name: name, image: image, currentPrice: currentPrice, marketCap: marketCap, marketCapRank: marketCapRank, fullyDilutedValuation: fullyDilutedValuation, totalVolume: totalVolume, high24H: high24H, low24H: low24H, priceChange24H: priceChange24H, priceChangePercentage24H: priceChangePercentage24H, marketCapChange24H: marketCapChange24H, marketCapChangePercentage24H: marketCapChangePercentage24H, circulatingSupply: circulatingSupply, totalSupply: totalSupply, maxSupply: maxSupply, ath: ath, athChangePercentage: athChangePercentage, athDate: athDate, atl: atl, atlChangePercentage: atlChangePercentage, atlDate: atlDate, lastUpdated: lastUpdated, sparklineIn7D: sparklineIn7D, priceChangePercentage24HInCurrency: priceChangePercentage24HInCurrency, currentHoldings: amount)
+        return Coin(
+            id: id,
+            symbol: symbol,
+            name: name,
+            image: image,
+            currentPrice: currentPrice,
+            marketCap: marketCap,
+            marketCapRank: marketCapRank,
+            fullyDilutedValuation: fullyDilutedValuation,
+            totalVolume: totalVolume,
+            high24H: high24H,
+            low24H: low24H,
+            priceChange24H: priceChange24H,
+            priceChangePercentage24H: priceChangePercentage24H,
+            marketCapChange24H: marketCapChange24H,
+            marketCapChangePercentage24H: marketCapChangePercentage24H,
+            circulatingSupply: circulatingSupply,
+            totalSupply: totalSupply,
+            maxSupply: maxSupply,
+            ath: ath,
+            athChangePercentage: athChangePercentage,
+            athDate: athDate,
+            atl: atl,
+            atlChangePercentage: atlChangePercentage,
+            atlDate: atlDate,
+            lastUpdated: lastUpdated,
+            sparklineIn7D: sparklineIn7D,
+            priceChangePercentage24HInCurrency: priceChangePercentage24HInCurrency,
+            currentHoldings: amount
+        )
     }
     
     var currentHoldingsValue: Double {
