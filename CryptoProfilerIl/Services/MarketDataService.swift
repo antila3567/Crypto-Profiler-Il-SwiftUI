@@ -21,7 +21,7 @@ class MarketDataService {
         }
     }
     
-    private func getMockData() {
+    public func getMockData() {
         NetworkingManager.fetchMockData(entityName: "marketDataMock") { [weak self] (result: Result<GlobalData, Error>) in
             switch result {
             case .success(let globalData):
@@ -33,7 +33,7 @@ class MarketDataService {
     }
 
 
-    private func getData() {
+    public func getData() {
         guard let url = URL(string: "https://api.coingecko.com/api/v3/global") else { return }
         
         

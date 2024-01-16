@@ -39,6 +39,7 @@
 		DDF6A7A22B56F09A003E7075 /* CoinLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7A12B56F09A003E7075 /* CoinLogoView.swift */; };
 		DDF6A7A52B56FEC2003E7075 /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7A32B56FEC2003E7075 /* PortfolioContainer.xcdatamodeld */; };
 		DDF6A7A72B56FF78003E7075 /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7A62B56FF78003E7075 /* PortfolioDataService.swift */; };
+		DDF6A7A92B57138F003E7075 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7A82B57138F003E7075 /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		DDF6A7A12B56F09A003E7075 /* CoinLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogoView.swift; sourceTree = "<group>"; };
 		DDF6A7A42B56FEC2003E7075 /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
 		DDF6A7A62B56FF78003E7075 /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
+		DDF6A7A82B57138F003E7075 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 			children = (
 				DDF6A77C2B5585DA003E7075 /* NetworkingManager.swift */,
 				DDF6A7882B55B8B3003E7075 /* LocalFileManager.swift */,
+				DDF6A7A82B57138F003E7075 /* HapticManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				DDF6A77D2B5585DA003E7075 /* NetworkingManager.swift in Sources */,
 				DDF6A76F2B5562FC003E7075 /* Coin.swift in Sources */,
 				DDF6A7852B55929F003E7075 /* CoinImageService.swift in Sources */,
+				DDF6A7A92B57138F003E7075 /* HapticManager.swift in Sources */,
 				DDF6A7952B56A7DB003E7075 /* HomeStatisticView.swift in Sources */,
 				DDF6A7A02B56ED8B003E7075 /* XMarkBtn.swift in Sources */,
 				DDF6A78C2B5663CF003E7075 /* SearchBarView.swift in Sources */,

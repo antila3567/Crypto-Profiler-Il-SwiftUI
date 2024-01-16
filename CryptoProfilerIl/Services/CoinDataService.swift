@@ -21,7 +21,7 @@ class CoinDataService {
         }
     }
     
-    private func getMockCoins() {
+    public func getMockCoins() {
         NetworkingManager.fetchMockData(entityName: "cryptoMock") { [weak self] (result: Result<[Coin], Error>) in
             switch result {
             case .success(let data):
@@ -33,7 +33,8 @@ class CoinDataService {
     }
     
     
-    private func getCoins() {
+    public func getCoins() {
+        print("Loading real data")
         guard let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=true&price_change_percentage=24h&locale=en")
         else { return }
         
