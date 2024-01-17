@@ -12,6 +12,8 @@ struct HomeView: View {
     
     @State private var showPortfolio: Bool = false
     @State private var showPortfolioSheet: Bool = false
+    @State private var selectedCoin: Coin? = nil
+    @State private var showDetailView: Bool = false
     
     var body: some View {
         ZStack {
@@ -42,10 +44,22 @@ struct HomeView: View {
                 Spacer(minLength: 0)
             }
         }
+        .background(
+                NavigationLink(
+                    destination: DetailsLoadingView(coin: $selectedCoin),
+                    isActive: $showDetailView,
+                    label: { EmptyView() }
+                )
+        )
     }
 }
 
 extension HomeView {
+    private func segue(coin: Coin) {
+        selectedCoin = coin
+        showDetailView = true
+    }
+    
     private var HomeHeader: some View {
         HStack {
             CircleButtonView(iconName: showPortfolio ? "plus" : "info")
@@ -83,6 +97,9 @@ extension HomeView {
             ForEach(vm.allCoins) { coin in
                 CoinRowView(coin: coin, showHoldingsColumn: false)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+                    .onTapGesture {
+                        segue(coin: coin)
+                    }
             }
         }
         .listStyle(PlainListStyle())
@@ -93,6 +110,9 @@ extension HomeView {
             ForEach(vm.portfolioCoins) { coin in
                 CoinRowView(coin: coin, showHoldingsColumn: true)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+                    .onTapGesture {
+                        segue(coin: coin)
+                    }
             }
         }
         .listStyle(PlainListStyle())
@@ -100,14 +120,55 @@ extension HomeView {
     
     private var ColumnTitles: some View {
         HStack {
-            Text("Coin")
-            Spacer()
-            if showPortfolio {
-                Text("Holdings")
+            HStack(spacing: 4) {
+                let isRankSort = vm.sortOption == .rank || vm.sortOption == .rankReversed
+                Text("Coin")
+                Image(systemName: "chevron.down")
+                    .opacity(isRankSort ? 1.0 : 0.0)
+                    .rotationEffect(Angle(degrees: vm.sortOption == .rank ? 0 : 180))
             }
-            Text("Price")
-                .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+            .onTapGesture {
+                withAnimation {
+                    vm.sortOption = vm.sortOption == .rank ? .rankReversed : .rank
+                }
+            }
+
+            Spacer()
             
+            if showPortfolio {
+                HStack(spacing: 4) {
+                    let isHoldingsSort = vm.sortOption == .holdings || vm.sortOption == .holdingReversed
+                    Text("Holdings")
+                        .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+                    Image(systemName: "chevron.down")
+                        .opacity(isHoldingsSort ? 1.0 : 0.0)
+                        .rotationEffect(Angle(degrees: vm.sortOption == .holdings ? 0 : 180))
+                }
+                .onTapGesture {
+                    withAnimation {
+                        vm.sortOption = vm.sortOption == .holdings ? .holdingReversed : .holdings
+                    }
+                }
+
+        
+            }
+            
+            
+            HStack(spacing: 4) {
+                let isPriceSort = vm.sortOption == .price || vm.sortOption == .priceReversed
+                Text("Price")
+                    .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+                Image(systemName: "chevron.down")
+                    .opacity(isPriceSort ? 1.0 : 0.0)
+                    .rotationEffect(Angle(degrees: vm.sortOption == .price ? 0 : 180))
+            }
+            .onTapGesture {
+                withAnimation {
+                    vm.sortOption = vm.sortOption == .price ? .priceReversed : .price
+                }
+            }
+
+
             Button {
                 withAnimation(.linear(duration: 2)) {
                     vm.reloadData(withMock: true)
@@ -120,6 +181,15 @@ extension HomeView {
         .font(.caption)
         .foregroundColor(Color.theme.secondaryText)
         .padding(.horizontal)
+    }
+    
+    private func titleView(_ title: String, isSort: Bool) -> some View {
+        HStack(spacing: 4) {
+            Text(title)
+            Image(systemName: "chevron.down")
+                .opacity(isSort ? 1.0 : 0.0)
+                .rotationEffect(Angle(degrees: isSort ? 0 : 180))
+        }
     }
 }
 
