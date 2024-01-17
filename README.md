@@ -1,3 +1,4 @@
-<img width="274" alt="Знімок екрана 2024-01-16 о 21 08 20" src="https://github.com/antila3567/Crypto-Profiler-Il-SwiftUI/assets/69010621/8a422a71-7509-43b7-b3c0-2513d1a25df5">
-<img width="259" alt="Знімок екрана 2024-01-16 о 21 08 31" src="https://github.com/antila3567/Crypto-Profiler-Il-SwiftUI/assets/69010621/13083b2a-b68a-489a-bf3b-100f69058050">
-<img width="261" alt="Знімок екрана 2024-01-16 о 21 08 45" src="https://github.com/antila3567/Crypto-Profiler-Il-SwiftUI/assets/69010621/e39da87b-f80b-4f84-b9af-5e983bb58360">
+<img width="254" alt="Знімок екрана 2024-01-17 о 20 15 19" src="https://github.com/antila3567/Crypto-Profiler-Il-SwiftUI/assets/69010621/8349395b-30a9-4de9-8231-7acf88d7a6ad">
+<img width="264" alt="Знімок екрана 2024-01-17 о 20 16 09" src="https://github.com/antila3567/Crypto-Profiler-Il-SwiftUI/assets/69010621/e1e01087-0d7a-422e-8e42-d3acc5e2b53a">
+<img width="252" alt="Знімок екрана 2024-01-17 о 20 16 21" src="https://github.com/antila3567/Crypto-Profiler-Il-SwiftUI/assets/69010621/0c98621a-3e1c-4105-abdd-864d310059eb">
+<img width="269" alt="Знімок екрана 2024-01-17 о 20 16 42" src="https://github.com/antila3567/Crypto-Profiler-Il-SwiftUI/assets/69010621/5e1d6631-4a9a-4c51-8a9a-5c738e8d9787">
