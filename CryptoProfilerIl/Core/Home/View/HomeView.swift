@@ -14,6 +14,7 @@ struct HomeView: View {
     @State private var showPortfolioSheet: Bool = false
     @State private var selectedCoin: Coin? = nil
     @State private var showDetailView: Bool = false
+    @State private var showSettingsView: Bool = false
     
     var body: some View {
         ZStack {
@@ -37,12 +38,21 @@ struct HomeView: View {
                     AllCoinsList
                         .transition(.move(edge: .leading))
                 } else {
-                    PortfolioCoinsList
-                        .transition(.move(edge: .trailing))
+                    ZStack(alignment: .top) {
+                        if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
+                            NoData
+                        } else {
+                            PortfolioCoinsList
+                                .transition(.move(edge: .trailing))
+                        }
+                    }
                 }
                 
                 Spacer(minLength: 0)
             }
+            .sheet(isPresented: $showSettingsView, content: {
+                SettingsView()
+            })
         }
         .background(
                 NavigationLink(
@@ -67,6 +77,8 @@ extension HomeView {
                 .onTapGesture {
                     if showPortfolio {
                         showPortfolioSheet.toggle()
+                    } else {
+                        showSettingsView.toggle()
                     }
                 }
                 .background(
@@ -103,6 +115,15 @@ extension HomeView {
             }
         }
         .listStyle(PlainListStyle())
+    }
+    
+    private var NoData: some View {
+        Text("There is no coins yet. Press plus button to get started")
+            .font(.callout)
+            .foregroundColor(Color.theme.accent)
+            .fontWeight(.medium)
+            .multilineTextAlignment(.center)
+            .padding(50)
     }
     
     private var PortfolioCoinsList: some View {

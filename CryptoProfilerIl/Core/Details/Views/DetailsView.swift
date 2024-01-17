@@ -21,6 +21,7 @@ struct DetailsLoadingView: View {
 
 struct DetailsView: View {
     @StateObject private var vm: DetailsViewModel
+    @State private var showFullDescription: Bool = false
     
     private let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -40,9 +41,12 @@ struct DetailsView: View {
                 
                 VStack(spacing: 20) {
                     
+                    
                     OverviewTitle
                 
                     Divider()
+                    
+                    DescriptionSection
                     
                     OverviewGrid
                     
@@ -51,6 +55,9 @@ struct DetailsView: View {
                     Divider()
                     
                     AdditionalGrid
+                    
+                    WebsiteSection
+    
                 }
                 .padding()
             }
@@ -76,12 +83,28 @@ extension DetailsView {
         }
     }
     
+    private var WebsiteSection: some View {
+        HStack(spacing: 40) {
+            if let websiteURL = vm.websiteURL, let url = URL(string: websiteURL) {
+                Link("Website", destination: url)
+            }
+                                
+            if let redditURL = vm.redditURL, let url = URL(string: redditURL) {
+                Link("Reddit", destination: url)
+            }
+        }
+        .accentColor(Color.blue)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .font(.headline)
+    }
+    
     private var OverviewTitle: some View {
         Text("Overview")
             .font(.title)
             .bold()
             .foregroundColor(Color.theme.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
+            .animation(.none)
     }
     
     private var AdditionalTitle: some View {
@@ -90,6 +113,35 @@ extension DetailsView {
             .bold()
             .foregroundColor(Color.theme.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
+            .animation(.none)
+    }
+    
+    private var DescriptionSection: some View {
+        ZStack {
+            if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
+                VStack(alignment: .leading) {
+                    Text(coinDescription)
+                        .lineLimit(showFullDescription ? nil : 3)
+                        .font(.callout)
+                        .foregroundColor(Color.theme.secondaryText)
+                    
+                    Button {
+                        withAnimation(.easeInOut) {
+                            showFullDescription.toggle()
+                        }
+                    } label: {
+                        Text(showFullDescription ? "Close": "Read more..")
+                            .font(.caption)
+                            .bold()
+                            .padding(.vertical, 4)
+                    }
+                    .accentColor(Color.blue)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                    
+            }
+        }
+
     }
     
     private var OverviewGrid: some View {
@@ -103,6 +155,7 @@ extension DetailsView {
                     StatisticView(statistic: Statistic(title: stat.title, value: stat.value, percentageChange: stat.percentageChange))
                 }
         })
+        .animation(.none)
     }
     
     private var AdditionalGrid: some View {
@@ -116,6 +169,7 @@ extension DetailsView {
                     StatisticView(statistic: Statistic(title: stat.title, value: stat.value, percentageChange: stat.percentageChange))
                 }
         })
+        .animation(.none)
     }
 }
 

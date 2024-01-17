@@ -102,17 +102,21 @@ class HomeViewModel: ObservableObject {
         let btcDominance = Statistic(title: "BTC Dominance", value: data.btcDominance)
         
   
-        let portfolioValue = portfolioCoins.map({ $0.currentHoldingsValue }).reduce(0, +)
-        
+        let portfolioValue = portfolioCoins.map { $0.currentHoldingsValue }.reduce(0, +)
+
         let previousValue = portfolioCoins.map { (coin) -> Double in
             let currentValue = coin.currentHoldingsValue
-            let percentChange = (coin.priceChangePercentage24H ?? 0) / 100
-            let prevValue = currentValue / (1 + percentChange)
+            let percentChange = coin.priceChangePercentage24H ?? 0 / 100
+            let prevValue = percentChange != 0 ? currentValue / (1 + percentChange) : currentValue
             return prevValue
         }.reduce(0, +)
-        
-        let percentageChange = ((portfolioValue - previousValue) / previousValue) * 100
-        
+
+
+        let percentageChange = previousValue != 0 
+        ? (portfolioValue - previousValue) / previousValue
+        : nil
+          
+
         let portfolio = Statistic(
             title: "Portfolio Value",
             value: portfolioValue.currencyWithTwoDecimals(),

@@ -47,6 +47,10 @@
 		DDF6A7B72B57E67B003E7075 /* CoinDetailsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7B62B57E67B003E7075 /* CoinDetailsDataService.swift */; };
 		DDF6A7B92B57FDED003E7075 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7B82B57FDED003E7075 /* ChartView.swift */; };
 		DDF6A7BB2B58050B003E7075 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7BA2B58050B003E7075 /* Date.swift */; };
+		DDF6A7BD2B580D46003E7075 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7BC2B580D46003E7075 /* String.swift */; };
+		DDF6A7C12B583702003E7075 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7C02B583702003E7075 /* SettingsView.swift */; };
+		DDF6A7C72B583FCF003E7075 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A7C62B583FCF003E7075 /* LaunchView.swift */; };
+		DDF6A7C92B58452A003E7075 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF6A7C82B58452A003E7075 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +96,10 @@
 		DDF6A7B62B57E67B003E7075 /* CoinDetailsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsDataService.swift; sourceTree = "<group>"; };
 		DDF6A7B82B57FDED003E7075 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		DDF6A7BA2B58050B003E7075 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		DDF6A7BC2B580D46003E7075 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		DDF6A7C02B583702003E7075 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DDF6A7C62B583FCF003E7075 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		DDF6A7C82B58452A003E7075 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +169,7 @@
 				DDF6A7742B556E8A003E7075 /* Double.swift */,
 				DDF6A78D2B566B05003E7075 /* UIApplication.swift */,
 				DDF6A7BA2B58050B003E7075 /* Date.swift */,
+				DDF6A7BC2B580D46003E7075 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -169,8 +178,10 @@
 			isa = PBXGroup;
 			children = (
 				DDF6A7672B5558AF003E7075 /* Components */,
-				DDF6A7622B5557DC003E7075 /* Home */,
+				DDF6A7C22B583C9A003E7075 /* Launch */,
 				DDF6A7AA2B57D78D003E7075 /* Details */,
+				DDF6A7622B5557DC003E7075 /* Home */,
+				DDF6A7BE2B5836D3003E7075 /* Settings */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -337,6 +348,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DDF6A7BE2B5836D3003E7075 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DDF6A7BF2B5836F7003E7075 /* Views */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DDF6A7BF2B5836F7003E7075 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DDF6A7C02B583702003E7075 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DDF6A7C22B583C9A003E7075 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				DDF6A7C32B583CBF003E7075 /* Views */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		DDF6A7C32B583CBF003E7075 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DDF6A7C62B583FCF003E7075 /* LaunchView.swift */,
+				DDF6A7C82B58452A003E7075 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -398,6 +442,7 @@
 				DDF6A7562B5552F5003E7075 /* Preview Assets.xcassets in Resources */,
 				DDF6A7B52B57E40D003E7075 /* coinDetailsMock.json in Resources */,
 				DDF6A7532B5552F5003E7075 /* Assets.xcassets in Resources */,
+				DDF6A7C92B58452A003E7075 /* LaunchScreen.storyboard in Resources */,
 				DDF6A7802B558D99003E7075 /* cryptoMock.json in Resources */,
 				DDF6A79B2B56C588003E7075 /* marketDataMock.json in Resources */,
 			);
@@ -416,6 +461,8 @@
 				DDF6A7932B56769E003E7075 /* StatisticView.swift in Sources */,
 				DDF6A78E2B566B05003E7075 /* UIApplication.swift in Sources */,
 				DDF6A7A52B56FEC2003E7075 /* PortfolioContainer.xcdatamodeld in Sources */,
+				DDF6A7C12B583702003E7075 /* SettingsView.swift in Sources */,
+				DDF6A7C72B583FCF003E7075 /* LaunchView.swift in Sources */,
 				DDF6A7872B5593D8003E7075 /* CoinImageViewModel.swift in Sources */,
 				DDF6A7832B55913D003E7075 /* CoinImageView.swift in Sources */,
 				DDF6A7712B556A00003E7075 /* CoinRowView.swift in Sources */,
@@ -440,6 +487,7 @@
 				DDF6A7852B55929F003E7075 /* CoinImageService.swift in Sources */,
 				DDF6A7B92B57FDED003E7075 /* ChartView.swift in Sources */,
 				DDF6A7A92B57138F003E7075 /* HapticManager.swift in Sources */,
+				DDF6A7BD2B580D46003E7075 /* String.swift in Sources */,
 				DDF6A7952B56A7DB003E7075 /* HomeStatisticView.swift in Sources */,
 				DDF6A7A02B56ED8B003E7075 /* XMarkBtn.swift in Sources */,
 				DDF6A7B02B57E2A5003E7075 /* DetailsViewModel.swift in Sources */,
@@ -575,6 +623,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CryptoProfilerIl/Preview Content\"";
@@ -586,8 +635,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -610,6 +659,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CryptoProfilerIl/Preview Content\"";
@@ -621,8 +671,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

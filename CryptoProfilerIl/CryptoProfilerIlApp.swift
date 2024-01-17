@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct CryptoProfilerIlApp: App {
-    @StateObject private var vm: HomeViewModel = HomeViewModel(withMock: true)
+    @StateObject private var vm: HomeViewModel = HomeViewModel(withMock: false)
+    @State private var showLaunchView: Bool = true
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.theme.accent)]
@@ -18,11 +19,22 @@ struct CryptoProfilerIlApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                HomeView()
-                    .navigationBarHidden(true)
+            ZStack {
+                NavigationView {
+                    HomeView()
+                        .navigationBarHidden(true)
+                }
+                .navigationViewStyle(StackNavigationViewStyle())
+                .environmentObject(vm)
+                
+                ZStack {
+                    if showLaunchView {
+                        LaunchView(showLaunchView: $showLaunchView)
+                            .transition(.move(edge: .top))
+                    }
+                }
+                .zIndex(2.0)
             }
-            .environmentObject(vm)
         }
     }
 }

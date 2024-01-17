@@ -10,7 +10,9 @@ import Combine
 
 class DetailsViewModel: ObservableObject {
     @Published var coin: Coin
-    
+    @Published var coinDescription: String? = nil
+    @Published var websiteURL: String? = nil
+    @Published var redditURL: String? = nil
     @Published var overviewStatistic: [Statistic] = []
     @Published var additionalStatistic: [Statistic] = []
     
@@ -31,6 +33,15 @@ class DetailsViewModel: ObservableObject {
             .sink {[weak self] data in
                 self?.overviewStatistic = data.overview
                 self?.additionalStatistic = data.additional
+            }
+            .store(in: &cancellables)
+        
+        coinDetailService.$coinDetails
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] coinDetails in
+                self?.coinDescription = coinDetails?.readableDescription
+                self?.websiteURL = coinDetails?.links?.homepage?.first
+                self?.redditURL = coinDetails?.links?.subredditURL
             }
             .store(in: &cancellables)
     }
